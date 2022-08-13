@@ -73,9 +73,20 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/) {
-  /*Code Here*/
+function inning() {
+  let num = Math.floor(Math.random());
+  if (num > 0 && num <= 0.34) {
+    return 0;
+  } else if (num > 0.34 && num < 0.67) {
+    return 1;
+  } else if (num > 0.67) {
+    return 2;
+  }
+
+  return num;
 }
+
+inning();
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
