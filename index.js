@@ -35,16 +35,16 @@ console.log(
   
   1. What is the difference between counter1 and counter2?
 
-  Counter1 uses a function inside of a function to call counter function and return it, meanwhile counter2 does not use this
+ counter1 makes uses of a return callback uses a closure since it is lexical scope, meanwhile counter2 is global scope and has used let outside. 
   
   2. Which of the two uses a closure? How can you tell?
   
-Counter1 is using a closure, as it uses a return callback function 
+Counter1 is using a closure, as the variable is only within the lexical scope
 
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
 
-     counter1 code is preferable when you need to have access to a functions outer scope. counter2 is better in local scope
+     counter1 code is preferable when you only want access to what is in that functions local scope. counter 2 is if want access to variables in the global scope
 */
 
 // counter1 code
@@ -102,9 +102,19 @@ Use the finalScore function below to do the following:
 }
 */
 
-function finalScore(/*Code Here*/) {
-  /*Code Here*/
+function finalScore(inning, inScore) {
+  const teamScore = {
+    Home: 0,
+    Away: 0,
+  };
+
+  for (let i = 0; i < inning; i++) {
+    teamScore.Home += inning();
+    teamScore.Away += inning();
+  }
+  return teamScore;
 }
+console.log(finalScore(inning, 9));
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
@@ -118,8 +128,8 @@ For example: invoking getInningScore(inning) might return this object:
 }
   */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(scores) {
+  return { Home: inning(), Away: inning() };
 }
 
 /* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
